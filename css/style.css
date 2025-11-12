@@ -67,16 +67,6 @@ header {
 }
 
 
-.nav a {
-  text-decoration: solid;
-  color: #333;
-  font-weight: 500;
-}
-
-.nav a:hover {
-  color: rgb(255, 255, 255);
-}
-
 .hero {
   display: flex;
   flex-wrap: wrap;
@@ -156,11 +146,6 @@ h2 {
   margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
-
-nu-categorias a:hover {
-  background: #1e8d4b;
-  color: white;
 }
 
 form {
@@ -289,52 +274,117 @@ footer {
     aspect-ratio: 4 / 3; 
   }
 
-  /* Footer */
+
   footer {
     padding: 20px;
     font-size: 0.9rem;
   }
 }
 
-/* === Fix mobile (<=768px) === */
-@media (max-width: 700px) {
-  /* Header: misma barra, pero apilado y con aire */
+
+
+@media (max-width: 768px) {
   header { height: auto; }
   header .container {
-    flex-direction: column;          /* logo arriba, nav abajo */
+    flex-direction: column;     
     align-items: center;
     gap: 6px;
-    padding: 8px 12px;               /* agrega aire para que no “corte” el título */
-    width: 90%;
+    padding: 8px 12px;               
+    width: 100%;
     box-sizing: border-box;
   }
 
   .nav {
-    flex-wrap: wrap;                  /* permite que los links bajen a otra línea */
+    flex-wrap: wrap;                 
     justify-content: center;
     gap: 12px;
     max-width: 100%;
   }
 
-  /* Evita cualquier overflow horizontal “fantasma” */
   html, body { overflow-x: hidden; }
 
-  /* Hero: columna y centrado */
+
   .hero {
     flex-direction: column;
     text-align: center;
-    padding: 16px;                   /* reduce padding para que no quede apretado */
+    padding: 16px;
   }
   .hero-text { width: 100%; }
   .hero-text h1 { font-size: 1.6rem; line-height: 1.2; }
   .hero-media { width: 100%; margin-top: 14px; }
   .hero-media img { width: 100%; height: auto; }
 
-  /* Botones más cómodos en táctil */
-  .btn, .btn-outline { padding: 10px 16px; }
 
-  /* Mapa un poco más alto en cel */
+  form { width: 100%; padding: 0 10px; }
+  input, textarea, button { font-size: 1rem; }
+
+
+  .menu-categorias ul { flex-direction: column; align-items: center; }
+
+
   .mapa-container { aspect-ratio: 4 / 3; }
+
+  footer { padding: 20px; font-size: .9rem; margin-top: 40px; }
 }
 
 
+.carousel {
+  position: relative;
+  max-width: 1000px;
+  margin: 40px auto 24px;
+  padding: 0 0 8px;
+}
+.carousel-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  background: #ddd;
+}
+.carousel-track > figure { margin: 0; scroll-snap-align: start; }
+.carousel-track img { width: 100%; height: 500px; display: block; }
+
+
+.carousel .control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-decoration: none;
+  font-size: 28px;
+  line-height: 1;
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 999px;
+  user-select: none;
+}
+.carousel .prev { left: 8px; }
+.carousel .next { right: 8px; }
+
+
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 8px;
+}
+.carousel-dots a {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  background: #cfcfcf;
+  border-radius: 50%;
+}
+
+
+@media (max-width: 768px) {
+  .carousel { margin: 8px auto 16px; }
+  .carousel .control { font-size: 24px; padding: 6px 10px; }
+}
+
+
+html { scroll-padding-top: 70px; }
