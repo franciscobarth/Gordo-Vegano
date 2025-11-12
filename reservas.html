@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reservas — Gordo Vegano</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <a href="index.html#inicio" class="logo">GORDO <span>VEGANO</span></a>
+      <nav aria-label="Principal">
+        <ul class="nav">
+          <li><a href="index.html#inicio">Inicio</a></li>
+          <li><a href="index.html#menu">Menú</a></li>
+          <li><a href="reservas.html" aria-current="page">Reservas</a></li>
+          <li><a href="index.html#ubicacion">Ubicación</a></li>
+          <li><a href="#" aria-label="Instagram">Instagram</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding:24px 0;">
+    <section aria-labelledby="reservas-title">
+      <h2 id="reservas-title">Reservas</h2>
+      <p>Dejanos tus datos y te confirmamos por WhatsApp.</p>
+
+      <form action="#" method="post">
+        <label>Nombre completo*
+          <input type="text" name="nombre" required>
+        </label>
+        <label>Teléfono / WhatsApp*
+          <input type="tel" name="telefono" required>
+        </label>
+        <label>Fecha*
+          <input type="date" name="fecha" required>
+        </label>
+        <label>Hora*
+          <input type="time" name="hora" required>
+        </label>
+        <label>Personas*
+          <input type="number" name="personas" min="1" value="2" required>
+        </label>
+        <button class="btn" type="submit">Enviar reserva</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© Gordo Vegano · Hecho con amor vegetal</p>
+  </footer>
+</body>
+</html>
