@@ -16,8 +16,8 @@
           <li><a href="index.html#inicio">Inicio</a></li>
           <li><a href="index.html#menu">Menú</a></li>
           <li><a href="reservas.html" aria-current="page">Reservas</a></li>
-          <li><a href="index.html#ubicacion">Ubicación</a></li>
-          <li><a href="#" aria-label="Instagram">Instagram</a></li>
+          <li><a href="ubicacion.html">Ubicación</a></li>
+          
         </ul>
       </nav>
     </div>
@@ -26,31 +26,58 @@
   <main class="container" style="padding:24px 0;">
     <section aria-labelledby="reservas-title">
       <h2 id="reservas-title">Reservas</h2>
-      <p>Dejanos tus datos y te confirmamos por WhatsApp.</p>
+     <p>Dejanos tus datos y te confirmamos por WhatsApp.</p>
 
-      <form action="#" method="post">
-        <label>Nombre completo*
-          <input type="text" name="nombre" required>
-        </label>
-        <label>Teléfono / WhatsApp*
-          <input type="tel" name="telefono" required>
-        </label>
-        <label>Fecha*
-          <input type="date" name="fecha" required>
-        </label>
-        <label>Hora*
-          <input type="time" name="hora" required>
-        </label>
-        <label>Personas*
-          <input type="number" name="personas" min="1" value="2" required>
-        </label>
-        <button class="btn" type="submit">Enviar reserva</button>
-      </form>
+    <form id="form-reserva" action="#" method="post">
+       <label>Nombre completo*
+        <input type="text" name="nombre" required>
+      </label>
+
+     <label>Teléfono / WhatsApp*
+      <input type="tel" name="telefono" required>
+     </label>
+
+    <label>Fecha*
+     <input type="date" name="fecha" required>
+    </label>
+
+     <label>Hora*
+      <input type="time" name="hora" required>
+     </label>
+
+     <label>Personas*
+      <input type="number" name="personas" min="1" value="2" required>
+     </label>
+
+       <button class="btn" type="submit">Enviar reserva</button>
+</form>
+
     </section>
   </main>
 
-  <footer>
-    <p>© Gordo Vegano · Hecho con amor vegetal</p>
-  </footer>
+ <footer>
+  <p>© Gordo Vegano · Hecho con amor vegetal</p>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("form-reserva");
+
+    form.addEventListener("submit", function(event) {
+      // Verifica los "required"
+      if (!form.checkValidity()) {
+        return;
+      }
+
+      // Evita que la página intente enviarse al servidor
+      event.preventDefault();
+
+      alert("✅ Tu solicitud fue enviada correctamente. ¡Gracias!");
+
+      form.reset();
+    });
+  });
+</script>
+
 </body>
 </html>
